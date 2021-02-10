@@ -1,38 +1,473 @@
-.App {
+/* CSS VARIABLES */
+:root {
+  --primary: #141414;
+  --light: #f3f3f3;
+  --dark: #686868;
+}
+
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary);
+  color: var(--light);
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  padding-top: 60px;
+}
+
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  padding: 20px 20px 0 20px;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas: "nt mn mn sb . . . ";
+  background-color: var(--primary);
+  width: 100%;
+  margin-bottom: 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+.netflixLogo {
+  grid-area: nt;
+  object-fit: cover;
+  width: 100px;
+  max-height: 100%;
+
+  padding-left: 30px;
+  padding-top: 0px;
+}
+
+.netflixLogo img {
+  height: 35px;
+}
+
+#logo {
+  color: #e50914;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav {
+  grid-area: mn;
+  padding: 0 30px 0 20px;
+}
+
+.main-nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin: 5px;
+}
+
+.main-nav a:hover {
+  color: var(--dark);
+}
+
+.sub-nav {
+  grid-area: sb;
+  padding: 0 40px 0 40px;
+}
+
+.sub-nav a {
+  color: var(--light);
+  text-decoration: none;
+  margin: 5px;
+}
+
+.sub-nav a:hover {
+  color: var(--dark);
+}
+
+/* MAIN CONTIANER */
+.main-container {
+  padding: 50px;
+}
+
+.box {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, minmax(100px, 1fr));
+  grid-template-areas: "myArea myArea myArea myArea myArea ";
+}
+.box-single {
+  padding: 20px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 100vh;
+}
+.box a {
+  transition: transform 0.2s;
+}
+.transition-style {
+  transition: transform 0.2s;
+}
+
+.box a:hover {
+  transition: transform 0.2s;
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.box img {
+  border-radius: 2px;
+}
+
+/* LINKS */
+.link {
+  padding: 50px;
+}
+
+.sub-links ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sub-links a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.sub-links a:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+.logos a {
+  padding: 10px;
+}
+
+.logo {
+  color: var(--dark);
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  text-align: center;
+  color: var(--dark);
+  margin: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 900px) {
+  header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "nt nt nt  .  .  . sb . . . "
+      "mn mn mn mn mn mn  mn mn mn mn";
+  }
+
+  .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "nt nt nt  .  .  . sb . . . "
+      "mn mn mn mn mn mn  mn mn mn mn";
+  }
+
+  .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+
+  .sub-links ul {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    font-size: 15px;
+  }
+
+  header {
+    margin: 0;
+    padding: 20px 0 0 0;
+    position: static;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "nt"
+      "mn"
+      "sb";
+    text-align: center;
+  }
+
+  .netflixLogo {
+    max-width: 100%;
+    margin: auto;
+    padding-right: 20px;
+  }
+
+  .main-nav {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+  .main-nav a:hover {
+    cursor: pointer;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .box {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+
+  .box a:hover {
+    transition: transform 1s;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1.2);
+  }
+
+  .logos {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+
+  .sub-links ul {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    font-size: 15px;
+  }
+}
+
+.moviedetail-container {
+  padding: 5rem 0;
+}
+
+.movies {
+  width: 100%;
+  padding: 0 15px 15px 0;
+}
+
+.video-playback {
+  width: 100%;
+  height: 70vh;
+}
+
+.movie-info {
+  padding: 3rem;
+}
+
+.movieinfo-headline {
+  padding: 0 !important;
+}
+.genres {
+  display: flex;
+  /* padding: 3px; */
+}
+
+.genres h3 {
+  margin-right: 5px;
+}
+
+.sub-info {
+  display: flex;
+  align-items: center;
+}
+
+.footer-container {
+  padding: 3rem 0;
+  background-color: black;
+}
+
+.footer-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-c-1 .c1 {
+  list-style: none;
+}
+
+.vertical-flip {
+  background: #111;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo > img {
+  width: 300px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: -80px auto;
+  -webkit-animation: animate 10s ease;
+  animation: animate 10s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@-webkit-keyframes animate {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+  perspective: 1000;
+  width: 350px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, -50%);
 }
 
-.App-link {
-  color: #61dafb;
+.card .flip {
+  transition: 0.9s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: -25px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card .flip .front {
+  z-index: 2;
+}
+
+.card .flip .front,
+.card .flip .back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.card .flip .front:before,
+.card .flip .back:before {
+  transition: all 0.3s ease;
+  border-color: transparent;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -24px;
+}
+
+#vertical-flip:hover .flip,
+#vertical-flip.hover .flip {
+  transform: rotateX(180deg);
+  transition: all 1s ease;
+}
+
+#vertical-flip .front {
+  background: transparent;
+  filter: saturate(2);
+  z-index: 1;
+}
+
+#vertical-flip .back {
+  transform: rotateX(180deg);
+  background: transparent;
+  color: #eee;
+}
+
+.box-input {
+  position: relative;
+  top: 90px;
+}
+
+input {
+  outline: 0 !important;
+  border-width: 0 0 1px 0 !important;
+  border-color: #eee !important;
+  margin: 0 auto;
+}
+
+input,
+button {
+  padding: 10px 3%;
+  background: transparent;
+  font-size: 15px;
+  width: 300px;
+  height: 25px;
+  font-family: "Montserrat";
+  border: 1px solid #eee;
+  position: relative;
+  color: #eee;
+  margin-bottom: 15px;
+}
+
+::-webkit-input-placeholder {
+  color: #ddd !important;
+  font-family: FontAwesome;
+  font-size: 16px;
+}
+
+button {
+  width: 325px;
+  height: 40px;
+  margin-top: 10px;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  color: #eee;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 1s ease;
+}
+
+button:hover {
+  background: #d50000;
+  border: none;
+  transition: all 1.5s ease;
 }
